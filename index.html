@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Sua Preparação | Cronograma de Estudos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subheadline {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .problem-section {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .problem-section h3 {
+            color: #92400e;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .problem-section p {
+            color: #78350f;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .solution-intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .solution-intro h2 {
+            font-size: 24px;
+            color: #1a202c;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .solution-intro p {
+            font-size: 16px;
+            color: #4a5568;
+        }
+
+        .benefits {
+            margin-bottom: 35px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        .benefit-text strong {
+            display: block;
+            color: #2d3748;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .benefit-text span {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .social-proof {
+            background: #edf2f7;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+        }
+
+        .social-proof-title {
+            text-align: center;
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 3px solid #667eea;
+        }
+
+        .testimonial:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .testimonial-author {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 600;
+        }
+
+        .urgency-box {
+            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .urgency-box h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .urgency-box p {
+            font-size: 15px;
+            opacity: 0.95;
+        }
+
+        .price-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .price-original {
+            font-size: 20px;
+            color: #e53e3e;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+
+        .price-current {
+            font-size: 42px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .price-installment {
+            font-size: 16px;
+            color: #4a5568;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .guarantee {
+            text-align: center;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .guarantee img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .guarantee p {
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .decline-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .decline-link a {
+            color: #a0aec0;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .decline-link a:hover {
+            color: #718096;
+        }
+
+        .video-placeholder {
+            background: #0f172a;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            position: relative;
+        }
+
+        .video-placeholder video {
+            display: block;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .video-control {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(15, 23, 42, 0.7);
+            color: #fff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .video-control:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 26px;
+            }
+
+            .subheadline {
+                font-size: 16px;
+            }
+
+            .price-current {
+                font-size: 36px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1451390496576557');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1451390496576557&ev=PageView&noscript=1"
+    ></noscript>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">⚡ Oferta Exclusiva para Você</div>
+            <h1 class="headline">O que aprovados fazem (que você ainda não faz)</h1>
+            <p class="subheadline">Você tem o conteúdo. Agora garanta que ele fique fixado na sua memória.</p>
+        </div>
+
+        <div class="content">
+            <!-- PROBLEMA -->
+            <div class="problem-section">
+                <h3>🚨 A verdade que ninguém te conta:</h3>
+                <p><strong>Ter o melhor material não garante aprovação.</strong> 80% dos estudantes de medicina sofrem com procrastinação e esquecimento rápido. Você estuda hoje, mas esquece em 48h. Chega em casa após o plantão e perde 30 minutos decidindo "por onde começar".</p>
+            </div>
+
+            <!-- VÍDEO PLACEHOLDER -->
+            <div class="video-placeholder">
+                <div class="video-wrapper">
+                    <video id="upsell-video" preload="metadata" poster="file:///C:/Users/joses/OneDrive/Desktop/DOCS%20BELLY/DAILY%20PLANNER%20DA%20BELLY/CAPA%20DA%20VSL%20UPSELL%20CRONOGRAMA.jpeg">
+                        <source src="file:///C:/Users/joses/OneDrive/Desktop/DOCS%20BELLY/DAILY%20PLANNER%20DA%20BELLY/VIDEO%20INSTA%20VSL%20UPSELL%20CRONOGRAMA.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo em HTML5.
+                    </video>
+                    <button class="video-control" type="button" aria-label="Reproduzir vídeo">▶</button>
+                </div>
+            </div>
+
+            <!-- SOLUÇÃO -->
+            <div class="solution-intro">
+                <h2>O Tipo de Sistema que Bons Estudantes Usam</h2>
+                <p>Cronograma personalizado baseado em <strong>neurociência e revisão espaçada</strong> — a mesma técnica usada por quem passa nas melhores residências.</p>
+            </div>
+
+            <!-- BENEFÍCIOS -->
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">1</div>
+                    <div class="benefit-text">
+                        <strong>Zero decisões pela manhã</strong>
+                        <span>Você abre o cronograma e já sabe EXATAMENTE o que estudar hoje. Sem enrolar, sem procrastinar.</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">2</div>
+                    <div class="benefit-text">
+                        <strong>Revisões automáticas baseadas no SEU desempenho</strong>
+                        <span>Matérias que você domina aparecem menos. Matérias difíceis voltam com mais frequência. O sistema aprende com você.</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">3</div>
+                    <div class="benefit-text">
+                        <strong>Combata o esquecimento com ciência</strong>
+                        <span>Revisão espaçada é a técnica mais eficaz para retenção de longo prazo (comprovado por Harvard e Stanford).</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">4</div>
+                    <div class="benefit-text">
+                        <strong>Mais tempo livre (sim, de verdade)</strong>
+                        <span>Estude menos horas, mas com mais eficiência. Elimine ansiedade e tenha paz mental sabendo que está no caminho certo.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROVA SOCIAL -->
+            <div class="social-proof">
+                <div class="social-proof-title">O que dizem quem usa os dois juntos</div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Comprei o Caderninho mas ficava perdida sobre quando revisar. O Cronograma acabou com isso. Agora faço as revisões no timing certo e realmente fixo os conteúdos."</p>
+                    <p class="testimonial-author">— Marina S., R1 UNICAMP</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"No plantão, o Guia salvou minha vida. Em casa, o Cronograma garante que eu não esqueça o que aprendi. Nunca precisei estudar 12h por dia."</p>
+                    <p class="testimonial-author">— Lucas M., R1 USP-RP</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Antes eu procrastinava porque não sabia por onde começar. Agora abro o cronograma e já sei o que fazer. Minha ansiedade caiu 80%."</p>
+                    <p class="testimonial-author">— Júlia F., 5° ano Medicina</p>
+                </div>
+            </div>
+
+            <!-- URGÊNCIA -->
+            <div class="urgency-box">
+                <h3>⏰ Oferta Válida Apenas Nesta Página</h3>
+                <p>Este desconto de 40% existe só para quem acabou de comprar. Se sair agora, perde o preço especial para sempre.</p>
+            </div>
+
+            <!-- PREÇO -->
+            <div class="price-box">
+                <p class="price-original">De 119,90</p>
+                <p class="price-current">R$ 6,90</p>
+                <p class="price-installment">por 10x ou 69,90 à vista</p>
+            </div>
+
+            <!-- CTA -->
+            <a href="https://pay.kiwify.com.br/kJNCMUa" class="cta-button" id="cta-button">
+                ✅ SIM! QUERO FIXAR O CONTEÚDO NA MEMÓRIA
+            </a>
+
+            <!-- GARANTIA -->
+            <div class="guarantee">
+                <p><strong>🛡️ Garantia de 7 Dias</strong></p>
+                <p>Se não reduzir sua procrastinação e ansiedade, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
+            </div>
+
+            <!-- DECLINE LINK -->
+            <div class="decline-link">
+                <a href="#">Não, obrigado. Vou continuar sem sistema de revisão →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const upsellVideo = document.getElementById('upsell-video');
+        const videoControl = document.querySelector('.video-control');
+        const ctaButton = document.getElementById('cta-button');
+        let videoHalfTracked = false;
+
+        const updateVideoControl = () => {
+            if (upsellVideo.paused) {
+                videoControl.textContent = '▶';
+                videoControl.setAttribute('aria-label', 'Reproduzir vídeo');
+            } else {
+                videoControl.textContent = '❚❚';
+                videoControl.setAttribute('aria-label', 'Pausar vídeo');
+            }
+        };
+
+        const togglePlayback = () => {
+            if (upsellVideo.paused) {
+                upsellVideo.play();
+            } else {
+                upsellVideo.pause();
+            }
+        };
+
+        videoControl.addEventListener('click', togglePlayback);
+        upsellVideo.addEventListener('click', togglePlayback);
+        upsellVideo.addEventListener('play', updateVideoControl);
+        upsellVideo.addEventListener('pause', updateVideoControl);
+        upsellVideo.addEventListener('ended', updateVideoControl);
+        upsellVideo.addEventListener('timeupdate', () => {
+            if (videoHalfTracked || !upsellVideo.duration) {
+                return;
+            }
+
+            const progress = upsellVideo.currentTime / upsellVideo.duration;
+            if (progress >= 0.5) {
+                videoHalfTracked = true;
+                if (typeof fbq === 'function') {
+                    fbq('trackCustom', 'Video50Percent');
+                }
+            }
+        });
+        updateVideoControl();
+
+        if (ctaButton) {
+            ctaButton.addEventListener('click', () => {
+                if (typeof fbq === 'function') {
+                    fbq('track', 'InitiateCheckout');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
